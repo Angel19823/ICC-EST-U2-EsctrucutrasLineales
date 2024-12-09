@@ -53,6 +53,8 @@ public class Stacks {
         System.out.println(current.getValue());
         current = current.getNext();
         cont++;
+
+        //Para combiar a complejidad lineal, hay que hace un variable lineal, sumar uno cuando haga push y restar uno cuando haga pop
        }
        return cont;
     }
