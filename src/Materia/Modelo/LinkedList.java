@@ -6,7 +6,6 @@ public class LinkedList<T> {
 
     public T findByValue(T value){
             return value;
-
     }
 
     public void deleteByVlue(T value){
@@ -19,11 +18,14 @@ public class LinkedList<T> {
             return;
         }
         NodeGeneric<T> current = head;
-        while(current.getNext() != null){
-            System.out.println(current.getValue()+" -> ");
+        while(current != null){
+            System.out.print(current.getValue());
+            if(current != null){
+                System.out.print(" -> ");
+            }
             current = current.getNext();
         }
-        System.out.println("END");
+        System.out.println(" -> END");
     }
 
     public void appendToTail(T value){
@@ -38,4 +40,22 @@ public class LinkedList<T> {
         }
         size++;
     }
+
+    public NodeGeneric<T> getHead() {
+        return head;
+    }
+
+    public void setHead(NodeGeneric<T> head) {
+        this.head = head;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    
 }
