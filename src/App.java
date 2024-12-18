@@ -1,12 +1,19 @@
 
 import Materia.Controller.MenuController;
+import Materia.Stacks.StackGeneric;
 import Materia.Stacks.Stacks;
+
+import java.util.Scanner;
+
+import Ejercicio_01_sign.ValidacionSign;
+import Ejercicio_02_sorting.OrdenarStack;
 
 public class App {
     public static void main(String[] args) throws Exception {
         //runStack();
-        runContactMannager();
-        System.out.println("Profe no se porque no se corre");
+        //runContactMannager();
+        Validador();
+        OrdenarStack();
     }
     public static void runStack(){
         
@@ -33,4 +40,37 @@ public class App {
         MenuController menucontroller = new MenuController();
         menucontroller.showMenu();
     }
+
+     private static void Validador() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese los signos signos: ");
+        String input = scanner.nextLine();
+        System.out.println("La validación es: " + ValidacionSign.esValido(input));
+        
+    }
+    private static void OrdenarStack() {
+        Scanner scanner = new Scanner(System.in);
+        StackGeneric<Integer> stack = new StackGeneric<>();
+        System.out.println("Ingrese los numeros ('X' para salir):");
+        
+        while (true) {
+            //System.out.println("");
+            String input = scanner.next();
+            if (input.equalsIgnoreCase("X")) {
+                break;
+            }
+            try {
+                stack.push(Integer.parseInt(input));
+            } catch (NumberFormatException e) {
+                System.out.println("Ingrese un número válido.");
+            }
+        }
+        
+        System.out.println("Stack sin ordenar: " + stack);
+        OrdenarStack.ordenar(stack); 
+        System.out.println("Stack ordenado: " + stack);
+        scanner.close();
+    }
+      
+
 }

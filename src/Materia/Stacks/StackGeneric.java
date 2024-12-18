@@ -66,6 +66,18 @@ public class StackGeneric<T> {
         return currentTop;              
     }
     
-
+    public String toString() {
+        NodeGeneric<T> current = top;
+        StringBuilder sb = new StringBuilder();
+        sb.append("(tope) ");
+        while (current != null) {
+            sb.append(current.getValue());
+            if (current.getNext() != null) {
+                sb.append("->");
+            }
+            current = current.getNext();
+        }
+        return sb.toString();
+    }
 
 }
