@@ -4,18 +4,18 @@ import Materia.Stacks.StackGeneric;
 
 public class OrdenarStack {
     public static void ordenar(StackGeneric<Integer> stack) {
-        StackGeneric<Integer> stackAux = new StackGeneric<>();
+        StackGeneric<Integer> stackAuxiliar = new StackGeneric<>();
         
         while (!stack.isEmpty()) {
             int temp = stack.pop();
-            while (!stackAux.isEmpty() && stackAux.peek() > temp) {
-                stack.push(stackAux.pop());
+            while (!stackAuxiliar.isEmpty() && stackAuxiliar.peek() > temp) {
+                stack.push(stackAuxiliar.pop());
             }
-            stackAux.push(temp);
+            stackAuxiliar.push(temp);
         }
         
-        while (!stackAux.isEmpty()) {
-            stack.push(stackAux.pop());
+        while (!stackAuxiliar.isEmpty()) {
+            stack.push(stackAuxiliar.pop());
         }
     }
 }

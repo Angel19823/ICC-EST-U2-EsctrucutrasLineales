@@ -3,19 +3,19 @@ package Ejercicio_01_sign;
 import Materia.Stacks.StackGeneric;
 
 public class ValidacionSign {
-    public static boolean esValido(String s) {
+    public static boolean esValido(String i) {
         StackGeneric<Character> stack = new StackGeneric<>();
-        for (char c : s.toCharArray()) {
-            if (c == '(' || c == '[' || c == '{') {
-                stack.push(c);
+        for (char j : i.toCharArray()) {
+            if (j == '(' || j == '[' || j == '{') {
+                stack.push(j);
             } else {
                 if (stack.isEmpty()) {
                     return false;
                 }   
                 char top = stack.pop();
-                if ((c == ')' && top != '(') || 
-                    (c == ']' && top != '[') || 
-                    (c == '}' && top != '{')) {
+                if ((j == ')' && top != '(') || 
+                    (j == ']' && top != '[') || 
+                    (j == '}' && top != '{')) {
                     return false;
                 }
             }
